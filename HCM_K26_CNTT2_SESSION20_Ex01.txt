@@ -1,0 +1,28 @@
+SESSION20
+Bài 1 : Xử lý cảnh báo đăng nhập giả mạo GitHub
+
+Tên lớp: HCM K26 CNTT2
+Môn học: Nhập môn công nghệ thông tin
+Họ và tên: LƯƠNG THANH THƯ
+
+
+Câu 1: Ký tự lạ trong URL và vì sao đánh lừa được
+Ký tự lạ: chữ ú (u có dấu sắc) trong githúb.com. Tên miền thật là github.com.
+Vì sao đánh lừa được: ú nhìn gần giống u, người đọc lướt nhanh sẽ đọc thành github.
+Đây là tấn công Homograph: dùng ký tự Unicode giống chữ Latin để tạo tên miền giả.
+Máy tính coi githúb.com là tên miền khác hoàn toàn, thuộc về kẻ xấu.
+Thông báo “Security Alert” tạo cảm giác gấp gáp nên người dùng ít kiểm tra kỹ rồi nhập mật khẩu.
+Lỗi của đoạn mã sinh viên: chỉ kiểm tra chuỗi thông thường, không kiểm tra ký tự ngoài ASCII nên bỏ sót. Cách sửa: kiểm tra host.isascii() và so khớp chính xác github.com.
+
+Câu 2: Quy trình kiểm tra URL trước khi nhập Master Password
+Bằng mắt thường:
+Bước 1: Không bấm link trong thông báo, tự gõ github.com hoặc mở từ bookmark.
+Bước 2: Đọc từng chữ phần tên miền, chú ý chữ có dấu hoặc chữ lạ.
+Bước 3: Kiểm tra đuôi tên miền đúng là .com.
+Bước 4: Nhớ rằng ổ khóa HTTPS không chứng minh trang là thật.
+
+Bằng công cụ hỗ trợ:
+Bitwarden (auto-fill): trang giả không được tự điền vì tên miền không khớp, đây là cảnh báo mạnh nhất.
+VirusTotal: dán URL để kiểm tra có bị gắn cờ lừa đảo không.
+Công cụ giải mã Punycode: URL dạng xn--... là dấu hiệu có ký tự Unicode.
+Quy tắc dừng: Bitwarden không tự điền thì không gõ tay mật khẩu, đóng trang và mở lại từ bookmark.
